@@ -52,6 +52,11 @@ class CaseOrientation(models.Model):
         validators=[STATE_VALIDATOR],
         help_text="Edges UB UR UF UL (0/1) + corners UBL UBR UFR UFL (0/1/2).",
     )
+    diagram = models.FileField(
+        upload_to="oll/diagrams/",
+        blank=True,
+        help_text="Generated SVG (admin action or `manage.py generate_oll_diagrams`).",
+    )
 
     class Meta:
         ordering = ["case__number", "rotation"]
